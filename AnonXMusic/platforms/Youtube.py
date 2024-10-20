@@ -1,4 +1,3 @@
-
 import asyncio
 import os
 import random
@@ -9,7 +8,7 @@ import httpx
 import yt_dlp
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
-from youtubesearchpython.future import VideosSearch
+from youtubesearchpython.__future__ import VideosSearch
 
 from AnonXMusic.utils.formatters import time_to_seconds
 from AnonXMusic.utils.database import is_on_off
@@ -71,7 +70,7 @@ async def api_download(vidid, video=False):
 
 
 class YouTubeAPI:
-    def init(self):
+    def __init__(self):
         self.base = "https://www.youtube.com/watch?v="
         self.regex = r"(?:youtube\.com|youtu\.be)"
         self.status = "https://www.youtube.com/oembed?url="
@@ -116,9 +115,7 @@ class YouTubeAPI:
         if "&" in link:
             link = link.split("&")[0]
         results = VideosSearch(link, limit=1)
-
-🅒‌꯭ɼ‌꯭ū꯭፝𝛅꯭ի꯭ ϻ꯭ⷭσ꯭꯭ᷴσ꯭ⷮηⷷ, [10/20/2024 8:00 AM]
-for result in (await results.next())["result"]:
+        for result in (await results.next())["result"]:
             title = result["title"]
             duration_min = result["duration"]
             thumbnail = result["thumbnails"][0]["url"].split("?")[0]
@@ -225,9 +222,7 @@ for result in (await results.next())["result"]:
         if "&" in link:
             link = link.split("&")[0]
         ytdl_opts = {"quiet": True, "cookiefile": cookies()}
-
-🅒‌꯭ɼ‌꯭ū꯭፝𝛅꯭ի꯭ ϻ꯭ⷭσ꯭꯭ᷴσ꯭ⷮηⷷ, [10/20/2024 8:00 AM]
-ydl = yt_dlp.YoutubeDL(ytdl_opts)
+        ydl = yt_dlp.YoutubeDL(ytdl_opts)
         with ydl:
             formats_available = []
             r = ydl.extract_info(link, download=False)
@@ -331,8 +326,7 @@ ydl = yt_dlp.YoutubeDL(ytdl_opts)
             x.download([link])
             return xyz
 
-🅒‌꯭ɼ‌꯭ū꯭፝𝛅꯭ի꯭ ϻ꯭ⷭσ꯭꯭ᷴσ꯭ⷮηⷷ, [10/20/2024 8:00 AM]
-def song_video_dl():
+        def song_video_dl():
             formats = f"{format_id}+140"
             fpath = f"downloads/{title}"
             ydl_optssx = {
